@@ -1,11 +1,11 @@
 pragma solidity =0.6.6;
 
-import '@eliteswap/v2-core/contracts/interfaces/IEliteswapV2Factory.sol';
-import '@eliteswap/v2-core/contracts/interfaces/IEliteswapV2Pair.sol';
-import '@eliteswap/lib/contracts/libraries/FixedPoint.sol';
+import '@cryptocode99/v2-core/contracts/interfaces/ICryptocode99V2Factory.sol';
+import '@cryptocode99/v2-core/contracts/interfaces/ICryptocode99V2Pair.sol';
+import '@cryptocode99/lib/contracts/libraries/FixedPoint.sol';
 
-import '../libraries/EliteswapV2OracleLibrary.sol';
-import '../libraries/EliteswapV2Library.sol';
+import '../libraries/Cryptocode99V2OracleLibrary.sol';
+import '../libraries/Cryptocode99V2Library.sol';
 
 // fixed window oracle that recomputes the average price for the entire period once every period
 // note that the price average is only guaranteed to be over at least 1 period, but may be over a longer period
@@ -14,7 +14,7 @@ contract ExampleOracleSimple {
 
     uint public constant PERIOD = 24 hours;
 
-    IEliteswapV2Pair immutable pair;
+    ICryptocode99V2Pair immutable pair;
     address public immutable token0;
     address public immutable token1;
 
@@ -25,7 +25,7 @@ contract ExampleOracleSimple {
     FixedPoint.uq112x112 public price1Average;
 
     constructor(address factory, address tokenA, address tokenB) public {
-        IEliteswapV2Pair _pair = IEliteswapV2Pair(EliteswapV2Library.pairFor(factory, tokenA, tokenB));
+        ICryptocode99V2Pair _pair = ICryptocode99V2Pair(Cryptocode99V2Library.pairFor(factory, tokenA, tokenB));
         pair = _pair;
         token0 = _pair.token0();
         token1 = _pair.token1();
@@ -39,7 +39,7 @@ contract ExampleOracleSimple {
 
     function update() external {
         (uint price0Cumulative, uint price1Cumulative, uint32 blockTimestamp) =
-            EliteswapV2OracleLibrary.currentCumulativePrices(address(pair));
+            Cryptocode99V2OracleLibrary.currentCumulativePrices(address(pair));
         uint32 timeElapsed = blockTimestamp - blockTimestampLast; // overflow is desired
 
         // ensure that at least one full period has passed since the last update

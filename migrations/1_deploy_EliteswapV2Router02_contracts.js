@@ -1,6 +1,6 @@
-const EliteswapV2Router02 = artifacts.require("EliteswapV2Router02");
+const Cryptocode99V2Router02 = artifacts.require("Cryptocode99V2Router02");
 
-// addresses[0]: 0x2D942Bc34754DD9A1aB2Da986fC545A0dAFF2cfB (Eliteswap: Deployer 2)
+// addresses[0]: 0x2D942Bc34754DD9A1aB2Da986fC545A0dAFF2cfB (Cryptocode99: Deployer 2)
 
 module.exports = async function (deployer, network, addresses) {
   let wethAddress;
@@ -16,5 +16,5 @@ module.exports = async function (deployer, network, addresses) {
     throw new Error('No Elite Swap on this network')
   }
   
-  await deployer.deploy(EliteswapV2Router02, factoryAddress, wethAddress);
+  await deployer.deploy(Cryptocode99V2Router02, factoryAddress, wethAddress);
 };

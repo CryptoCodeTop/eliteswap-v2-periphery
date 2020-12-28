@@ -1,22 +1,22 @@
 {
-  "name": "@eliteswap/v2-periphery",
+  "name": "@cryptocode99/v2-periphery",
   "version": "1.1.1",
   "description": "🎚 Peripheral smart contracts for interacting with Elite Swap V2",
   "engines": {
     "node": ">=10"
   },
-  "homepage": "https://eliteswap.org",
+  "homepage": "https://cryptocode99.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EthereumEliteswap/eliteswap-v2-periphery.git"
+    "url": "git+https://github.com/cryptocode99/cryptocode99-v2-periphery.git"
   },
   "files": [
     "build",
     "contracts"
   ],
   "dependencies": {
-    "@eliteswap/lib": "^2.0.0",
-    "@eliteswap/v2-core": "^1.0.0",
+    "@cryptocode99/lib": "^2.0.0",
+    "@cryptocode99/v2-core": "^1.0.0",
     "@truffle/hdwallet-provider": "^1.2.0"
   },
   "devDependencies": {
@@ -45,18 +45,18 @@
   },
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/EthereumEliteswap/eliteswap-v2-periphery/issues"
+    "url": "https://github.com/cryptocode99/cryptocode99-v2-periphery/issues"
   },
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "keywords": [
-    "eliteswap",
+    "cryptocode99",
     "ethereum",
     "v2",
     "periphery",
-    "eliteswap-v2"
+    "cryptocode99-v2"
   ],
   "author": ""
 }

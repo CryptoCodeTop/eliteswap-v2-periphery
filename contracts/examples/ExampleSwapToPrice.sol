@@ -1,21 +1,21 @@
 pragma solidity =0.6.6;
 
-import '@eliteswap/v2-core/contracts/interfaces/IEliteswapV2Pair.sol';
-import '@eliteswap/lib/contracts/libraries/Babylonian.sol';
-import '@eliteswap/lib/contracts/libraries/TransferHelper.sol';
+import '@cryptocode99/v2-core/contracts/interfaces/ICryptocode99V2Pair.sol';
+import '@cryptocode99/lib/contracts/libraries/Babylonian.sol';
+import '@cryptocode99/lib/contracts/libraries/TransferHelper.sol';
 
 import '../interfaces/IERC20.sol';
-import '../interfaces/IEliteswapV2Router01.sol';
+import '../interfaces/ICryptocode99V2Router01.sol';
 import '../libraries/SafeMath.sol';
-import '../libraries/EliteswapV2Library.sol';
+import '../libraries/Cryptocode99V2Library.sol';
 
 contract ExampleSwapToPrice {
     using SafeMath for uint256;
 
-    IEliteswapV2Router01 public immutable router;
+    ICryptocode99V2Router01 public immutable router;
     address public immutable factory;
 
-    constructor(address factory_, IEliteswapV2Router01 router_) public {
+    constructor(address factory_, ICryptocode99V2Router01 router_) public {
         factory = factory_;
         router = router_;
     }
@@ -62,7 +62,7 @@ contract ExampleSwapToPrice {
         bool aToB;
         uint256 amountIn;
         {
-            (uint256 reserveA, uint256 reserveB) = EliteswapV2Library.getReserves(factory, tokenA, tokenB);
+            (uint256 reserveA, uint256 reserveB) = Cryptocode99V2Library.getReserves(factory, tokenA, tokenB);
             (aToB, amountIn) = computeProfitMaximizingTrade(
                 truePriceTokenA, truePriceTokenB,
                 reserveA, reserveB
